@@ -8,7 +8,6 @@ import {
   Title,
   Tooltip,
   Legend,
-  ChartData,
 } from "chart.js";
 import { Box, Typography } from "@mui/material";
 import { chartOptions } from "../constants/chartOptions";
@@ -25,7 +24,7 @@ ChartJS.register(
 
 interface IDashboardChartProps {
     price: string;
-    chartData: ChartData;
+    chartData: any;
 }
 
 const DashboardChart: React.FC<IDashboardChartProps> = ({ price, chartData }) => {
@@ -39,8 +38,7 @@ const DashboardChart: React.FC<IDashboardChartProps> = ({ price, chartData }) =>
       <Typography variant="h2">{`$${price}`}</Typography>
 
       <Box sx={{ width: "80%", height: "100%" }}>
-        {/* TODO: fix */}
-        <Line data={chartData as any} options={chartOptions} />
+        <Line data={chartData} options={chartOptions} />
       </Box>
     </Box>
   );

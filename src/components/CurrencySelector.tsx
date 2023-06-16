@@ -2,7 +2,7 @@ import { MenuItem, Select } from "@mui/material";
 
 interface ICurrencySelectorProps {
   pair: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent) => void;
   currencies: any[];
 }
 
@@ -16,7 +16,7 @@ const CurrencySelector: React.FC<ICurrencySelectorProps> = ({
       labelId="currency-label"
       id="currency"
       value={pair}
-      onChange={onChange}
+      onChange={() => onChange}
       name="currency"
     >
       {currencies.map((currency, index) => (
